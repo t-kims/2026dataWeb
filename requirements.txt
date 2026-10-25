@@ -2,4 +2,3 @@
 streamlit
 json
 pandas
-pandas import json_normalize
