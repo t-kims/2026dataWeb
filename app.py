@@ -1,6 +1,7 @@
 import urllib.request
 import json
 from pandas import json_normalize
+import streamlit as st
  
 api = "https://open.neis.go.kr/hub/mealServiceDietInfo"
 key = "a8c601f5ff5b4a739866af067cff1fe6"
@@ -11,4 +12,4 @@ url = f"{api}?KEY={key}&Type=json&ATPT_OFCDC_SC_CODE={edu_code}&SD_SCHUL_CODE={s
 text = urllib.request.urlopen(url).read().decode("utf-8")
 data = json.loads(text)
 df = json_normalize(data["mealServiceDietInfo"][1]["row"])
-print(df[["MLSV_YMD", "DDISH_NM"]])
+st.write(df[["MLSV_YMD", "DDISH_NM"]])
